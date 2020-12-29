@@ -20,6 +20,8 @@ int main()
 		printf("*[10] find          [11] length     *\n");
 		printf("*[12] capacity      [13] sort       *\n");
 		printf("*[14] reverse       [15] clear      *\n");
+		printf("*[16] front         [17] back       *\n");
+		printf("*[18] binary_find   [19] erase_all  *\n");
 		printf("*************************************\n");
 		printf("请选择：>");
 		scanf("%d", &select);
@@ -50,6 +52,11 @@ int main()
 			break;
 		case 4:
 			SeqListPopBack(&list);
+			printf("尾部删除数据成功...\n");
+			break;
+		case 5:
+			SeqListPopFront(&list);
+			printf("头部删除数据成功...\n");
 			break;
 		case 6:
 			printf("请输入要插入的位置:>");
@@ -66,12 +73,50 @@ int main()
 				printf("插入数据失败...\n");
 			}
 			break;
+		case 7:
+			printf("请输入要插入的元素:>");
+			scanf("%d", &item);
+			SeqListSort(&list);
+			SeqListInsertByVal(&list, item);
+			printf("按值插入成功...\n");
+			break;
+		case 8:
+			printf("请输入要删除的位置:>");
+			scanf("%d", &pos);
+			SeqListErasePos(&list, pos);
+			printf("删除数据成功...\n");
+			break;
+		case 9:
+			printf("请输入要删除的元素:>");
+			scanf("%d", &item);
+			SeqListEraseVal(&list, item);
+			break;
+		case 10:
+			printf("请输入要查找的关键值:>");
+			scanf("%d", &item);
+			pos = SeqListFind(&list, item);
+			if (pos == -1)
+			{
+				printf("数据查找失败.\n");
+			}
+			else
+			{
+				printf("数据查找成功.\n");
+			}
+			break;
 		case 11:
 			printf("SeqList Length = %d\n", SeqListLength(&list));
 			break;
+		case 12:
+			printf("SeqList Capacity = %d\n", SeqListCapacity(&list));
+			break;
 		case 13:
 			SeqListSort(&list);
-			printf("排序成功...");
+			printf("排序成功...\n");
+			break;
+		case 14:
+			SeqListReverse(&list);
+			printf("转制完成...\n");
 			break;
 		case 15:
 			SeqListClear(&list);
